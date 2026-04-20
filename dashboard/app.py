@@ -13,7 +13,7 @@ st.title("🗺️ Asile Europe - Dashboard interactif")
 # =========================================================
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-DATA_PATH = os.path.join(BASE_DIR, "notebook", "df_sudan.csv")
+DATA_PATH = os.path.join(BASE_DIR, "data", "df_sudan.csv")
 
 df_sudan = pd.read_csv(DATA_PATH)
 
