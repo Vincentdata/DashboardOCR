@@ -1,0 +1,115 @@
+niveau,continent,norme_iso_3166,nationalite,premiere_demande,reexamen,reouverture,maj_premiere_demande,maj_reexamen,maj_reouverture,f_premiere_demande,f_reexamen,f_reouverture,maj_f_premiere_demande,maj_f_reexamen,maj_f_reouverture
+Total,,,,130029,23573,113,93742,16656,55,56417,7957,75,37231,4435,26
+Continent,AFRIQUE,,,59706,6688,51,41786,3927,9,27577,2720,45,17062,1185,4
+Nationalité,AFRIQUE,,Autres nationalités,38,4,0,32,2,0,10,1,0,9,1,0
+Nationalité,AFRIQUE,AGO,Angola,2429,137,0,1656,68,0,1329,62,0,952,27,0
+Nationalité,AFRIQUE,BDI,Burundi,203,24,0,130,12,0,92,7,0,58,5,0
+Nationalité,AFRIQUE,BEN,Bénin,341,16,0,273,11,0,129,6,0,87,3,0
+Nationalité,AFRIQUE,BFA,Burkina Faso,313,45,0,230,25,0,145,19,0,93,6,0
+Nationalité,AFRIQUE,CAF,Centrafrique,856,48,1,531,34,1,386,13,0,219,4,0
+Nationalité,AFRIQUE,CIV,Côte d'Ivoire,8851,909,22,5077,295,0,5576,568,22,3104,157,0
+Nationalité,AFRIQUE,CMR,Cameroun,1674,118,0,1363,79,0,759,44,0,599,16,0
+Nationalité,AFRIQUE,COD,Rép. Dém. Congo,9481,849,1,6583,448,0,4735,371,0,3230,169,0
+Nationalité,AFRIQUE,COG,Congo,1258,147,1,951,105,1,635,69,0,471,49,0
+Nationalité,AFRIQUE,COM,Comores,683,43,0,450,27,0,244,13,0,123,4,0
+Nationalité,AFRIQUE,DJI,Djibouti,305,59,0,208,45,0,154,26,0,101,20,0
+Nationalité,AFRIQUE,DZA,Algérie,1098,108,0,858,88,0,315,22,0,192,10,0
+Nationalité,AFRIQUE,EGY,Égypte,794,213,0,649,188,0,177,27,0,100,11,0
+Nationalité,AFRIQUE,ERI,Érythrée,1466,132,0,1011,50,0,657,60,0,444,22,0
+Nationalité,AFRIQUE,ESH,Sahara occ. (origine),353,17,0,346,13,0,42,6,0,37,3,0
+Nationalité,AFRIQUE,ETH,Éthiopie,966,68,0,842,37,0,234,30,0,175,18,0
+Nationalité,AFRIQUE,GAB,Gabon,174,15,0,119,10,0,103,5,0,76,3,0
+Nationalité,AFRIQUE,GHA,Ghana,64,9,0,56,9,0,24,1,0,17,1,0
+Nationalité,AFRIQUE,GIN,Guinée,10327,1000,9,6644,527,1,5633,418,9,3336,170,1
+Nationalité,AFRIQUE,GMB,Gambie,150,36,0,106,27,0,60,12,0,30,6,0
+Nationalité,AFRIQUE,GNB,Guinée-Bissau,110,17,0,74,7,0,65,10,0,46,3,0
+Nationalité,AFRIQUE,GNQ,Guinée équatoriale,23,2,0,17,1,0,15,1,0,13,0,0
+Nationalité,AFRIQUE,KEN,Kenya,46,7,0,43,6,0,25,3,0,23,3,0
+Nationalité,AFRIQUE,LBR,Libéria,84,24,0,56,11,0,46,7,0,26,0,0
+Nationalité,AFRIQUE,LBY,Libye,148,37,0,106,29,0,44,6,0,27,3,0
+Nationalité,AFRIQUE,MAR,Maroc,585,75,0,508,66,0,153,14,0,122,10,0
+Nationalité,AFRIQUE,MDG,Madagascar,163,10,0,117,6,0,76,6,0,54,3,0
+Nationalité,AFRIQUE,MLI,Mali,1725,253,2,1081,171,0,912,93,2,423,44,0
+Nationalité,AFRIQUE,MOZ,Mozambique,9,0,0,9,0,0,5,0,0,5,0,0
+Nationalité,AFRIQUE,MRT,Mauritanie,1560,299,0,1302,252,0,434,69,0,282,45,0
+Nationalité,AFRIQUE,MUS,Maurice,54,0,0,38,0,0,29,0,0,21,0,0
+Nationalité,AFRIQUE,NER,Niger,119,21,1,88,17,1,46,2,0,29,2,0
+Nationalité,AFRIQUE,NGA,Nigéria,2018,829,3,1261,507,0,933,376,3,465,183,0
+Nationalité,AFRIQUE,RWA,Rwanda,323,62,0,199,34,0,163,27,0,106,13,0
+Nationalité,AFRIQUE,SDN,Soudan,4927,284,2,4368,203,2,751,59,2,465,35,2
+Nationalité,AFRIQUE,SEN,Sénégal,1437,152,0,992,108,0,741,64,0,405,34,0
+Nationalité,AFRIQUE,SLE,Sierra Leone,792,58,1,552,35,0,372,23,1,242,12,0
+Nationalité,AFRIQUE,SOM,Somalie,2036,285,5,1526,196,2,734,79,4,491,39,1
+Nationalité,AFRIQUE,SSD,Soudan du Sud,363,2,0,278,2,0,109,0,0,57,0,0
+Nationalité,AFRIQUE,TCD,Tchad,692,197,2,509,122,0,277,73,2,164,37,0
+Nationalité,AFRIQUE,TGO,Togo,155,26,1,134,20,1,44,10,0,33,7,0
+Nationalité,AFRIQUE,TUN,Tunisie,428,36,0,356,30,0,113,6,0,76,3,0
+Nationalité,AFRIQUE,UGA,Ouganda,59,15,0,43,4,0,37,12,0,26,4,0
+Nationalité,AFRIQUE,ZAF,Afrique du Sud,26,0,0,14,0,0,14,0,0,8,0,0
+Continent,AMÉRIQUES,,,8726,6078,8,6173,4050,6,4610,2929,6,3291,1903,5
+Nationalité,AMÉRIQUES,,Autres nationalités,71,6,0,53,6,0,26,1,0,18,1,0
+Nationalité,AMÉRIQUES,ARG,Argentine,25,1,0,18,1,0,11,1,0,8,1,0
+Nationalité,AMÉRIQUES,BRA,Brésil,202,10,0,142,5,0,102,5,0,69,4,0
+Nationalité,AMÉRIQUES,CHL,Chili,36,3,0,31,3,0,9,2,0,7,2,0
+Nationalité,AMÉRIQUES,COL,Colombie,1346,138,3,1009,98,2,652,66,2,480,45,2
+Nationalité,AMÉRIQUES,CUB,Cuba,108,13,0,92,13,0,44,3,0,37,3,0
+Nationalité,AMÉRIQUES,DOM,Dominicaine (Rép.),134,37,0,107,25,0,83,25,0,70,18,0
+Nationalité,AMÉRIQUES,ECU,Équateur,33,3,0,25,2,0,15,2,0,9,2,0
+Nationalité,AMÉRIQUES,HND,Honduras,19,1,0,14,1,0,9,0,0,7,0,0
+Nationalité,AMÉRIQUES,HTI,Haïti,5395,5713,5,3668,3780,4,2964,2762,4,2067,1782,3
+Nationalité,AMÉRIQUES,LCA,Sainte-Lucie,94,16,0,64,14,0,50,3,0,32,2,0
+Nationalité,AMÉRIQUES,MEX,Mexique,23,3,0,20,3,0,7,1,0,7,1,0
+Nationalité,AMÉRIQUES,NIC,Nicaragua,25,2,0,17,1,0,12,1,0,9,1,0
+Nationalité,AMÉRIQUES,PER,Pérou,368,30,0,266,25,0,162,13,0,111,11,0
+Nationalité,AMÉRIQUES,PRY,Paraguay,10,0,0,9,0,0,9,0,0,8,0,0
+Nationalité,AMÉRIQUES,SLV,Salvador,28,5,0,19,5,0,15,3,0,10,3,0
+Nationalité,AMÉRIQUES,SUR,Suriname,22,8,0,17,2,0,11,2,0,9,1,0
+Nationalité,AMÉRIQUES,USA,États-Unis,14,2,0,12,2,0,8,1,0,7,1,0
+Nationalité,AMÉRIQUES,VEN,Vénézuela,773,87,0,590,64,0,421,38,0,326,25,0
+Continent,ASIE,,,30582,4840,24,23919,4205,15,9307,616,8,6277,317,5
+Nationalité,ASIE,,Autres nationalités,48,5,0,36,4,0,21,0,0,17,0,0
+Nationalité,ASIE,AFG,Afghanistan,12378,2063,20,8841,1887,11,3964,103,6,2410,17,3
+Nationalité,ASIE,BGD,Bangladesh,6031,920,0,5723,821,0,788,114,0,635,65,0
+Nationalité,ASIE,CHN,Chine,2101,71,0,1736,28,0,999,32,0,831,14,0
+Nationalité,ASIE,IND,Inde,353,70,0,292,55,0,96,13,0,68,11,0
+Nationalité,ASIE,IRN,Iran,500,50,0,418,39,0,241,15,0,196,9,0
+Nationalité,ASIE,IRQ,Irak,434,65,0,277,42,0,167,14,0,93,7,0
+Nationalité,ASIE,ISR,Israël,26,0,0,15,0,0,14,0,0,6,0,0
+Nationalité,ASIE,JOR,Jordanie,30,4,0,21,2,0,11,2,0,7,0,0
+Nationalité,ASIE,KAZ,Kazakhstan,97,29,0,63,23,0,49,10,0,32,6,0
+Nationalité,ASIE,KGZ,Kirghizstan,17,4,0,10,2,0,10,3,0,6,1,0
+Nationalité,ASIE,KHM,Cambodge,112,18,0,98,16,0,55,2,0,50,2,0
+Nationalité,ASIE,KWT,Koweït,71,5,0,40,3,0,35,2,0,17,0,0
+Nationalité,ASIE,LBN,Liban,281,58,0,212,37,0,150,29,0,115,18,0
+Nationalité,ASIE,LKA,Sri Lanka,2828,642,4,2505,577,4,782,121,2,624,86,2
+Nationalité,ASIE,MMR,Birmanie,89,7,0,58,6,0,39,3,0,24,3,0
+Nationalité,ASIE,MNG,Mongolie,332,43,0,215,26,0,165,19,0,111,10,0
+Nationalité,ASIE,MYS,Malaisie,8,3,0,8,2,0,5,2,0,5,1,0
+Nationalité,ASIE,NPL,Népal,181,21,0,180,20,0,77,6,0,76,5,0
+Nationalité,ASIE,PAK,Pakistan,1459,527,0,1249,494,0,227,30,0,146,18,0
+Nationalité,ASIE,PSE,Palestine (PAL2),168,18,0,97,14,0,83,4,0,49,2,0
+Nationalité,ASIE,PSE,Palestine (autorité),230,17,0,165,14,0,90,5,0,63,4,0
+Nationalité,ASIE,SAU,Arabie saoudite,6,1,0,5,0,0,5,0,0,5,0,0
+Nationalité,ASIE,SYR,Syrie,2576,159,0,1486,68,0,1153,73,0,639,31,0
+Nationalité,ASIE,TJK,Tadjikistan,18,24,0,11,11,0,8,10,0,5,4,0
+Nationalité,ASIE,UZB,Ouzbékistan,19,3,0,16,3,0,9,1,0,6,1,0
+Nationalité,ASIE,VNM,Vietnam,31,8,0,31,8,0,5,2,0,5,2,0
+Nationalité,ASIE,YEM,Yémen,158,5,0,111,3,0,59,1,0,36,0,0
+Continent,EUROPE,,,30575,5967,30,21460,4474,25,14811,1692,16,10507,1030,12
+Nationalité,EUROPE,,Autres nationalités,40,3,0,28,3,0,16,0,0,10,0,0
+Nationalité,EUROPE,ALB,Albanie,1391,619,2,879,362,1,705,284,2,455,167,1
+Nationalité,EUROPE,ARM,Arménie,1876,367,0,1357,230,0,914,158,0,688,110,0
+Nationalité,EUROPE,AZE,Azerbaïdjan,397,127,0,271,85,0,183,55,0,115,35,0
+Nationalité,EUROPE,BIH,Bosnie-Herzégovine,91,71,1,54,30,1,39,35,1,22,14,1
+Nationalité,EUROPE,BLR,Biélorussie,140,41,1,107,29,1,58,18,0,39,14,0
+Nationalité,EUROPE,GEO,Géorgie,3152,792,5,2475,598,5,1346,286,1,1026,195,1
+Nationalité,EUROPE,MDA,Moldavie,174,47,0,114,33,0,77,19,0,48,14,0
+Nationalité,EUROPE,MKD,Macédoine du Nord (Rép.),171,59,1,94,28,1,87,21,0,50,10,0
+Nationalité,EUROPE,MNE,Monténégro,32,8,0,16,2,0,15,3,0,6,1,0
+Nationalité,EUROPE,RUS,Russie,2513,609,3,1765,369,2,1111,239,2,758,131,1
+Nationalité,EUROPE,SRB,Serbie,312,125,0,164,63,0,144,51,0,82,26,0
+Nationalité,EUROPE,TUR,Turquie,5746,2672,5,4391,2391,5,1961,324,2,1331,200,2
+Nationalité,EUROPE,UKR,Ukraine,11814,205,12,8180,142,9,6767,94,8,5040,61,6
+Nationalité,EUROPE,XXK,Kosovo,2726,222,0,1565,109,0,1388,105,0,837,52,0
+Continent,INDETERMINE,,,440,0,0,404,0,0,112,0,0,94,0,0
+Nationalité,INDETERMINE,XXX,Nationalité indéterminée - apatride,440,0,0,404,0,0,112,0,0,94,0,0
