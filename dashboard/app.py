@@ -2,10 +2,15 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import os
+
 # =========================================================
 # CONFIG
 # =========================================================
-st.set_page_config(page_title="Donnees eurostat premieres demandes d asile personnes de nationalité soudanaise", layout="wide")
+st.set_page_config(
+    page_title="Donnees eurostat premieres demandes d asile personnes de nationalité soudanaise",
+    layout="wide"
+)
+
 st.title("🗺️ Dashboard interactif")
 
 # =========================================================
@@ -61,21 +66,15 @@ def load_data(df):
 df = load_data(df_sudan)
 
 # =========================================================
-# SIDEBAR - FILTRES PRINCIPAUX
+# SIDEBAR
 # =========================================================
 st.sidebar.header("🌍 Filtres evolution temporelle")
 
 countries = ["EU27"] + sorted([x for x in df["pays_fr"].unique() if x != "EU27"])
-age_options = sorted(df["age"].unique())
 months = sorted(df["month_str"].unique())
 
-country_name = st.sidebar.selectbox(
-    "Zone géographique",
-    countries,
-    index=0
-)
+country_name = st.sidebar.selectbox("Zone géographique", countries, index=0)
 
-# 👉 TITRE SOUS LE FILTRE (CE QUE TU DEMANDES)
 st.sidebar.markdown("### 🗺️ Carte Europe")
 
 selected_month = st.sidebar.select_slider(
@@ -84,31 +83,24 @@ selected_month = st.sidebar.select_slider(
     value=months[0]
 )
 
-# =========================================================
-# SIDEBAR - GRAPHIQUES DU BAS
-# =========================================================
 st.sidebar.markdown("---")
 st.sidebar.header("📉 Graphiques age sexe evolution temporelle")
 
-sex_bottom = st.sidebar.selectbox(
-    "Sexe",
-    ["T", "F", "M"],
-    index=0
-)
+sex_bottom = st.sidebar.selectbox("Sexe", ["T", "F", "M"], index=0)
 
 age_bottom = st.sidebar.selectbox(
     "Âge",
-    age_options,
-    index=age_options.index("Total") if "Total" in age_options else 0
+    sorted(df["age"].unique()),
+    index=0
 )
 
 # =========================================================
-# DATA FILTER
+# FILTER
 # =========================================================
 df_country = df[df["pays_fr"] == country_name]
 
 # =========================================================
-# TIME SERIES (TOP)
+# TIME SERIES
 # =========================================================
 st.subheader(f"📊 Évolution temporelle - {country_name}")
 
@@ -152,13 +144,43 @@ with col_map:
     fig_map.update_layout(height=600)
     st.plotly_chart(fig_map, use_container_width=True)
 
+# =========================================================
+# PYRAMIDE DES AGES (FIXÉE)
+# =========================================================
 with col_pyr:
     st.subheader("👥 Pyramide des âges (Europe)")
 
     pyramid = df[
         (df["geo"] == "EU27") &
         (df["month_str"] == selected_month)
-    ].groupby(["age", "sex"])["value"].sum().reset_index()
+    ].copy()
+
+    # enlever bruit
+    pyramid = pyramid[~pyramid["age"].isin(["Total", "Unknown"])]
+
+    # normalisation des âges
+    age_map = {
+        "<14": "0-14",
+        "<18": "0-17",
+        "14-17": "14-17",
+        "18-34": "18-34",
+        "35-64": "35-64",
+        "65+": "65+"
+    }
+
+    pyramid["age"] = pyramid["age"].replace(age_map)
+
+    pyramid = pyramid.groupby(["age", "sex"])["value"].sum().reset_index()
+
+    age_order = ["0-14", "0-17", "14-17", "18-34", "35-64", "65+"]
+
+    pyramid["age"] = pd.Categorical(
+        pyramid["age"],
+        categories=age_order,
+        ordered=True
+    )
+
+    pyramid = pyramid.sort_values("age")
 
     fig_pyr = px.bar(
         pyramid,
@@ -170,6 +192,7 @@ with col_pyr:
     )
 
     fig_pyr.update_layout(height=600)
+
     st.plotly_chart(fig_pyr, use_container_width=True)
 
 # =========================================================
