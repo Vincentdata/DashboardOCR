@@ -1,21 +1,22 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-
-# ----------------------------
+import os
+# =========================================================
 # CONFIG
-# ----------------------------
+# =========================================================
 st.set_page_config(page_title="Asile Europe Dashboard", layout="wide")
 st.title("🗺️ Asile Europe - Dashboard interactif")
 
-# ----------------------------
+# =========================================================
 # DATA
-# ----------------------------
-df_sudan = pd.read_csv("/home/vincent/Documents/Associatif/Observatoire_des_Camps_de_Refugies/Stat_soudan/notebook/df_sudan.csv")
+# =========================================================
 
-# ----------------------------
-# PREP DATA
-# ----------------------------
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+DATA_PATH = os.path.join(BASE_DIR, "notebook", "df_sudan.csv")
+
+df_sudan = pd.read_csv(DATA_PATH)
+
 @st.cache_data
 def load_data(df):
 
@@ -26,19 +27,23 @@ def load_data(df):
         value_name="value"
     )
 
-    # nettoyage
     df_long["value"] = pd.to_numeric(df_long["value"], errors="coerce")
     df_long = df_long.dropna(subset=["value"])
-
-    # date
     df_long["month"] = pd.to_datetime(df_long["month"])
 
-    # agrégation
+    # harmonisation EU27
+    df_long["pays_fr"] = df_long["pays_fr"].replace({
+        "Union européenne (27 pays)": "EU27"
+    })
+
+    df_long["geo"] = df_long["geo"].replace({
+        "EU27_2020": "EU27"
+    })
+
     df_long = df_long.groupby(
         ["geo", "sex", "age", "month", "pays_fr"]
     )["value"].sum().reset_index()
 
-    # mapping ISO2 → ISO3 (clé pour la carte)
     iso2_to_iso3 = {
         "FR":"FRA","DE":"DEU","IT":"ITA","ES":"ESP","BE":"BEL","NL":"NLD",
         "PL":"POL","SE":"SWE","CH":"CHE","AT":"AUT","PT":"PRT","RO":"ROU",
@@ -48,8 +53,6 @@ def load_data(df):
     }
 
     df_long["iso3"] = df_long["geo"].map(iso2_to_iso3)
-
-    # on garde même EU27_2020 (utile pour pyramide)
     df_long["month_str"] = df_long["month"].dt.strftime("%Y-%m")
 
     return df_long
@@ -57,22 +60,23 @@ def load_data(df):
 
 df = load_data(df_sudan)
 
-# ----------------------------
-# FILTRE PRINCIPAL
-# ----------------------------
-st.sidebar.header("Filtres")
+# =========================================================
+# SIDEBAR - FILTRES PRINCIPAUX
+# =========================================================
+st.sidebar.header("🌍 Filtres evolution temporelle")
+
+countries = ["EU27"] + sorted([x for x in df["pays_fr"].unique() if x != "EU27"])
+age_options = sorted(df["age"].unique())
+months = sorted(df["month_str"].unique())
 
 country_name = st.sidebar.selectbox(
-    "Pays",
-    sorted(df["pays_fr"].unique())
+    "Zone géographique",
+    countries,
+    index=0
 )
 
-df_country = df[df["pays_fr"] == country_name]
-
-# ----------------------------
-# SLIDER TEMPS (PROPRE)
-# ----------------------------
-months = sorted(df["month_str"].unique())
+# 👉 TITRE SOUS LE FILTRE (CE QUE TU DEMANDES)
+st.sidebar.markdown("### 🗺️ Carte Europe")
 
 selected_month = st.sidebar.select_slider(
     "Temps",
@@ -81,7 +85,30 @@ selected_month = st.sidebar.select_slider(
 )
 
 # =========================================================
-# 🔝 TOP : 3 TIME SERIES (F / M / T)
+# SIDEBAR - GRAPHIQUES DU BAS
+# =========================================================
+st.sidebar.markdown("---")
+st.sidebar.header("📉 Graphiques age sexe evolution temporelle")
+
+sex_bottom = st.sidebar.selectbox(
+    "Sexe",
+    ["T", "F", "M"],
+    index=0
+)
+
+age_bottom = st.sidebar.selectbox(
+    "Âge",
+    age_options,
+    index=age_options.index("Total") if "Total" in age_options else 0
+)
+
+# =========================================================
+# DATA FILTER
+# =========================================================
+df_country = df[df["pays_fr"] == country_name]
+
+# =========================================================
+# TIME SERIES (TOP)
 # =========================================================
 st.subheader(f"📊 Évolution temporelle - {country_name}")
 
@@ -99,11 +126,10 @@ for sex_val, col in zip(["F", "M", "T"], [col1, col2, col3]):
         st.plotly_chart(fig, use_container_width=True)
 
 # =========================================================
-# 🗺️ MAP + PYRAMIDE
+# MAP + PYRAMIDE
 # =========================================================
 col_map, col_pyr = st.columns([2, 1])
 
-# ---------- CARTE ----------
 with col_map:
     st.subheader("🗺️ Carte Europe")
 
@@ -111,7 +137,7 @@ with col_map:
         (df["sex"] == "T") &
         (df["age"] == "Total") &
         (df["month_str"] == selected_month) &
-        (df["iso3"].notna())   # 🔥 évite EU27
+        (df["iso3"].notna())
     ]
 
     fig_map = px.choropleth(
@@ -123,17 +149,14 @@ with col_map:
         range_color=(0, df["value"].quantile(0.95))
     )
 
-    fig_map.update_traces(marker_line_width=0.5)
     fig_map.update_layout(height=600)
-
     st.plotly_chart(fig_map, use_container_width=True)
 
-# ---------- PYRAMIDE ----------
 with col_pyr:
     st.subheader("👥 Pyramide des âges (Europe)")
 
     pyramid = df[
-        (df["geo"] == "EU27_2020") &
+        (df["geo"] == "EU27") &
         (df["month_str"] == selected_month)
     ].groupby(["age", "sex"])["value"].sum().reset_index()
 
@@ -147,36 +170,29 @@ with col_pyr:
     )
 
     fig_pyr.update_layout(height=600)
-
     st.plotly_chart(fig_pyr, use_container_width=True)
 
 # =========================================================
-# 🎛️ FILTRES BAS
+# BOTTOM GRAPHS
 # =========================================================
-st.sidebar.subheader("Filtres (graphiques du bas)")
+st.markdown("---")
+st.subheader("📉 Graphiques age sexe evolution temporelle")
 
-sex_bottom = st.sidebar.selectbox("Sexe", df["sex"].unique())
-age_bottom = st.sidebar.selectbox("Âge", sorted(df["age"].unique()))
-
-# =========================================================
-# 📉 BAS : 2 GRAPHIQUES
-# =========================================================
 colb1, colb2 = st.columns(2)
 
-# TOTAL
 with colb1:
-    st.subheader("📈 Total (tous âges)")
+    st.markdown("### 📈 Total (tous âges)")
 
     ts_all = df_country[
         df_country["sex"] == sex_bottom
     ].groupby("month_str")["value"].sum().reset_index()
 
     fig_all = px.line(ts_all, x="month_str", y="value")
+
     st.plotly_chart(fig_all, use_container_width=True)
 
-# AGE SPECIFIQUE
 with colb2:
-    st.subheader(f"📊 Âge : {age_bottom}")
+    st.markdown(f"### 📊 Âge : {age_bottom}")
 
     ts_age = df_country[
         (df_country["sex"] == sex_bottom) &
@@ -184,4 +200,5 @@ with colb2:
     ].groupby("month_str")["value"].sum().reset_index()
 
     fig_age = px.line(ts_age, x="month_str", y="value")
+
     st.plotly_chart(fig_age, use_container_width=True)
