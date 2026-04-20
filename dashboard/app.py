@@ -5,8 +5,8 @@ import os
 # =========================================================
 # CONFIG
 # =========================================================
-st.set_page_config(page_title="Asile Europe Dashboard", layout="wide")
-st.title("🗺️ Asile Europe - Dashboard interactif")
+st.set_page_config(page_title="Donnees eurostat premieres demandes d asile personnes de nationalité soudanaise", layout="wide")
+st.title("🗺️ Dashboard interactif")
 
 # =========================================================
 # DATA
