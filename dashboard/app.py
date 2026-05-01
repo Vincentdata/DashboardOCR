@@ -13,6 +13,12 @@ st.set_page_config(
 
 st.title("🗺️ Dashboard interactif")
 
+#========================================================
+# Paragraphe
+#========================================================
+
+st.write("Ce dashboard présente les premières demandes d'asile en Europe pour des personnes de nationalité soudanaise, issues des données dEurostat. (https://ec.europa.eu/eurostat/web/main/data/database#Data%20navigation%20tree , estat_migr_asyappctzm.tsv).")
+
 # =========================================================
 # DATA
 # =========================================================
